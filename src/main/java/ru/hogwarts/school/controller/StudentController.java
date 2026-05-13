@@ -42,8 +42,13 @@ public class StudentController {
         return studentService.getAllStudent();
     }
 
-    @GetMapping("/age/{age}")
-    public Collection<Student> getStudentsByAge(@PathVariable int age) {
+    @GetMapping("/age")
+    public Collection<Student> getStudentsByAge(@RequestParam int age) {
         return studentService.getStudentsByAge(age);
+    }
+
+    @GetMapping("/ageLimit")
+    public Collection<Student> getStudentsByAgeLimits(@RequestParam int ageMin, @RequestParam int ageMax) {
+        return studentService.getStudentsByAgeLimits(ageMin, ageMax);
     }
 }
