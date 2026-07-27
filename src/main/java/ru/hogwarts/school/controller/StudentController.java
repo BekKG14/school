@@ -45,7 +45,7 @@ public class StudentController {
     }
     @PutMapping
     public ResponseEntity<Student> updateStudent(@RequestBody Student student) {
-        return ResponseEntity.ok().body(student);
+        return ResponseEntity.ok().body(studentService.updateStudent(student));
     }
 
     @DeleteMapping("{id}")
@@ -69,7 +69,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}/avatar/db")
-    public Avatar getAvatarByIdFromDp(@PathVariable Long id){
+    public Avatar getAvatarByIdFromDb(@PathVariable Long id){
        return avatarService.findStudentsAvatar(id);
     }
 
