@@ -1,5 +1,6 @@
 package ru.hogwarts.school.service;
 
+import jakarta.validation.constraints.Null;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Student;
@@ -23,7 +24,7 @@ public class StudentService {
     }
 
     public Student getStudent(Long id) {
-        return studentRepository.findById(id).get();
+        return studentRepository.findById(id).orElse(null);
     }
 
     public Student updateStudent(Student student) {
